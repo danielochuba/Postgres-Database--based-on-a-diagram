@@ -61,7 +61,7 @@ Example command:
 ### Setup
 
 Clone this repository to your desired folder:
-it clone https://github.com/danielochuba/vet-clinic-database.git
+it clone https://github.com/danielochuba/Postgres-Database--based-on-a-diagram.git
 
 ## 👥 Author <a name="authors"></a>
 
