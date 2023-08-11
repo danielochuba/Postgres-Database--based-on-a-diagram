@@ -26,6 +26,7 @@ CREATE TABLE invoices (
   payed_at TIMESTAMP NOT NULL,
   medical_history_id INT REFERENCES medical_histories(id)
   );
+
 CREATE TABLE invoice_items (
   id SERIAL PRIMARY KEY,
   unit_price DECIMAL(18,2) NOT NULL,
@@ -34,3 +35,17 @@ CREATE TABLE invoice_items (
   invoice_id INT REFERENCES invoices(id),
   treatment_id INT REFERENCES treatments(id)
   );
+
+CREATE INDEX ON medical_histories (id);
+CREATE INDEX ON invoice_items (invoice_id);
+CREATE INDEX ON invoice_items (treatment_id);
+CREATE INDEX ON invoices (id);
+CREATE INDEX ON invoices (medical_history_id);
+
+  CREATE TABLE medical_histories_treatments (
+    medical_history_id INT REFERENCES medical_histories(id),
+    treatment_id INT REFERENCES treatments(id),
+    );
+
+ CREATE INDEX ON medical_histories_treatments (medical_history_id);
+ CREATE INDEX ON medical_histories_treatments (treatment_id);
